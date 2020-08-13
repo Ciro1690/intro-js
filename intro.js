@@ -73,8 +73,8 @@ Elephant.prototype.addTrick = function(trick) {
 };
 
 Elephant.prototype.play = function() {
-    var randTrick = tricks[Math.floor(Math.random() * this.tricks.length)];
-    console.log(`${this.name} is ${this.randTrick}!`)
+    randTrick = Math.floor(Math.random() * this.tricks.length);
+    console.log(`${this.name} is ${this.tricks[randTrick]}!`)
 }
 
 let ellie = new Elephant("Ellie", 185, ["giving human friends a ride", "playing hide and seek"]);
@@ -83,3 +83,21 @@ let kate = new Elephant("Kate", 234, ["writing letters", "stealing peanuts"]);
 let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doing elephant ballet"]);
 
 let herd = [ellie, charlie, kate, micah];
+
+Elephant.paradeHelper = function (elephant) {
+    console.log(`${elephant.name} is trotting by!`);
+};
+/*
+herd.forEach(elephant => 
+    Elephant.paradeHelper(elephant));
+*/
+
+function dinerBreakfast() {
+    let order = "I'd like cheesy scrambled eggs and chocolate chip pancakes please.";
+    console.log(order);
+
+    return function (food) {
+        order = `${order.slice(0, order.length - 8)} and ${food} please.`;
+        console.log(order);
+    };
+};
